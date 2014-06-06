@@ -30,4 +30,32 @@ public class MyDataAcces {
 		   System.out.println(ex);
 		  } 
 	 }
+	 
+	 public ResultSet getQuery(String _query){
+	  Statement state = null;
+	  ResultSet resultado = null;
+	  try{
+	   state = (Statement) conn.createStatement();
+	   resultado = state.executeQuery(_query);
+	  }
+	  catch(SQLException e)
+	  {
+	   e.printStackTrace();
+	   
+	  }
+	  return resultado;
+	 }
+	  
+	 public void setQuery(String _query){
+	 
+		  Statement state = null;
+		   
+		  try{  
+		   state=(Statement) conn.createStatement();
+		   state.execute(_query);
+		 
+         } catch (SQLException e){
+            e.printStackTrace();
+         }
+	 }
 }
